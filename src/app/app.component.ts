@@ -1,13 +1,27 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet ,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'revision2';
+
+  isClicked:boolean = false
+
+  imgSrc:string = ""
+
+  open(mainImage:string) {
+    this.isClicked = true
+    this.imgSrc = "./assets/images/" + mainImage
+  }
+
+  close() {
+    this.isClicked = false
+  }
 }
